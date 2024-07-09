@@ -173,7 +173,7 @@ const CartPage = () => {
                                     </>
                                     :
 
-                                    <h1 className="text-gray-500 text-lg">No Items in Cart...☹️</h1>}
+                                    <h1 className="text-gray-500 text-lg">No Items in Cart. Add Now...</h1>}
                             </ul>
                         </section>
                         {/* Order summary */}

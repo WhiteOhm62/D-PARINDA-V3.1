@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Layout from "../../components/layout/Layout";
+import { useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
 import { useParams } from "react-router";
 import { fireDB } from "../../firebase/FirebaseConfig";
@@ -8,10 +9,13 @@ import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const ProductInfo = () => {
     const context = useContext(myContext);
     const { loading, setLoading } = context;
+    const navigate = useNavigate();
+
 
     const [product, setProduct] = useState('')
     console.log(product)
@@ -41,6 +45,15 @@ const ProductInfo = () => {
         // console.log(item)
         dispatch(addToCart(item));
         toast.success("Add to cart")
+    }
+
+    const buyNow = (item) => {
+        dispatch(addToCart(item));
+        toast.success("Add to cart")
+        onchange(
+            navigate('/cart')
+        )
+        
     }
 
     const deleteCart = (item) => {
@@ -91,8 +104,8 @@ const ProductInfo = () => {
                                             <h2 className="max-w-xl mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
                                                 {product?.title}
                                             </h2>
-                                            <div className="flex flex-wrap items-center mb-6">
-                                            <h4 className="-mt-4 mr-3 text-gray-800">Ratings :</h4>
+                                            <div className="flex flex-wrap items-center  mb-6">
+                                            <h4 className="-mt-4 lg:mt-1 mr-3 text-gray-800">Ratings :</h4>
                                                 <ul className="flex mb-4 mr-2 lg:mb-0">
                                                     <li>
                                                         <a href="" >
@@ -184,11 +197,14 @@ const ProductInfo = () => {
                                             }
                                         </div>
                                         <div className="flex gap-4 mb-6">
-                                            <button
+                                       
+                                        <button onClick={()=> buyNow(product)}
                                                 className="w-full px-4 py-3 text-center text-gray-100 bg-blue-600 border border-transparent dark:border-gray-700 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-100 rounded-xl"
                                             >
                                                 Buy now
                                             </button>
+                                        
+                                           
                                         </div>
                                     </div>
                                 </div>

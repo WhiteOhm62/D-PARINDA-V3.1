@@ -44,7 +44,7 @@ const AdminDashboard = () => {
                     <div className=" bg-blue-50 py-5 rounded-xl border border-blue-100 flex-col items-center justify-center">
                         {/* image  */}
                         <div className="flex-row justify-center">
-                            <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" className='w-12 h-12 ml-[150px] mb-5' alt="" />
+                            <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" className='w-12 h-12 ml-[150px] lg:ml-[715px] mb-5' alt="" />
                         </div>
                         {/* text  */}
                            <div className="flex-col items-center justify-center ">

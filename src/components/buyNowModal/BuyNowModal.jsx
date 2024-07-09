@@ -22,6 +22,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
             <Dialog open={open} handler={handleOpen} className=" bg-blue-50">
                 <DialogBody className="">
                     <div className="mb-3">
+                        <h1 className="flex items-center justify-center  lg:m-5 text-blue-600 lg:text-2xl md:text-sm font-bold mb-10">PLACE YOUR ORDER NOW ...</h1>
                         <input
                             type="text"
                             name="name"

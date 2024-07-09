@@ -18,12 +18,12 @@ const HomePageProductCard = () => {
     const addCart = (item) => {
         // console.log(item)
         dispatch(addToCart(item));
-        toast.success("Add to cart")
+        toast.success("Added to cart")
     }
 
     const deleteCart = (item) => {
         dispatch(deleteFromCart(item));
-        toast.success("Delete cart")
+        toast.success("Deleted from cart")
     }
 
     // console.log(cartItems)
@@ -43,15 +43,15 @@ const HomePageProductCard = () => {
             {/* main  */}
             <section className="text-gray-600 body-font ">
                 <div className="container px-5 py-5 mx-auto">
-                    <div className="flex flex-wrap -m-4">
-                        {getAllProduct.slice(0, 8).map((item, index) => {
+                    <div className="flex flex-wrap ">
+                        {getAllProduct.slice(0, 12).map((item, index) => {
                             const { id, title, price, productImageUrl ,category} = item
                             return (
                                 <div key={index} className="flex p-2 w-1/2 lg:w-1/4 ">
-                                    <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
+                                    <div className="h-full w-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                                         <img
                                             onClick={() => navigate(`/productinfo/${id}`)}
-                                            className="lg:h-80   h-40 w-full"
+                                            className="h-40 w-full lg:h-80 object-fill"
                                             src={productImageUrl}
                                             alt="blog"
                                         />
@@ -73,7 +73,7 @@ const HomePageProductCard = () => {
                                                 ?
                                                 <button
                                                     onClick={() => deleteCart(item)}
-                                                    className=" bg-red-700 hover:bg-blue-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                    className=" bg-red-700 hover:bg-red-600 w-full text-white py-[4px] rounded-lg font-bold">
                                                     Remove
                                                 </button>
 

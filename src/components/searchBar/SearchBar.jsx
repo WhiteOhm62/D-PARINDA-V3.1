@@ -19,10 +19,10 @@ const SearchBar = () => {
         <div className="bg-blue-600">
             {/* search input  */}
             <div className="input flex bg-blue-600 items-center justify-center">
-               <div className="flex items-center justify-between bg-gray-200 rounded-lg mb-2 w-80">
+               <div className="flex items-center justify-between bg-gray-200 rounded-lg mb-2 w-80 lg:w-[55%]">
                <input
                     type="text"
-                    placeholder='Search here'
+                    placeholder='Search products here...'
                     onChange={(e) => setSearch(e.target.value)}
                     className=' placeholder-gray-400 bg-gray-200 rounded-lg px-2 py-2 w-96 lg:w-96 md:w-70 sm:w-50 outline-none text-black'
                 />
@@ -32,7 +32,7 @@ const SearchBar = () => {
 
             {/* search drop-down  */}
             <div className=" flex justify-center">
-                {search && <div className="block absolute bg-blue-50  w-96 md:w-96 lg:w-96 z-50 my-1 rounded-lg px-2 py-2">
+                {search && <div className="block absolute bg-blue-50  w-96 md:w-96 lg:w-[55%] z-50 my-1 rounded-lg px-2 py-2">
                     {filterSearchData.length > 0 ?
                         <>
                             {filterSearchData.map((item, index) => {
@@ -48,7 +48,8 @@ const SearchBar = () => {
                         </>
                         :
                         <>
-                            <div className="flex justify-center">
+                            <div className="flex justify-center items-center ml-5">
+                                <h1 className="lg:text-2xl text-gray-600 items-center justify-center flex">No Related Products Found !!!</h1>
                                 <img className=" w-20" src="https://cdn-icons-png.flaticon.com/128/10437/10437090.png" alt="img" />
                             </div>
                         </>}
